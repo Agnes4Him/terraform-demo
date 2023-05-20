@@ -1,19 +1,8 @@
 provider "aws" {
-    region = "us-east-1"
+    region = var.region
+    access_key = var.access_key
+    secret_key = var.secret_key
 }
-
-variable vpc_cidr_block {
-  type        = string
-  default     = ""
-  description = "vpc cidr block"
-}
-variable subnet_cidr_block {
-  type        = string
-  default     = ""
-  description = "vpc cidr block"
-}
-variable subnet_avail_zone {}
-variable env_prefix {}
 
 resource "aws_vpc" "my_de_vpc" {
     cidr_block = var.vpc_cidr_block
